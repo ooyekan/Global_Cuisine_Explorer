@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   get 'countries/index'
   get 'countries/show'
   resources :countries, only: [:index, :show]
+  resources :cuisines
   root 'countries#index'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

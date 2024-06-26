@@ -1,0 +1,11 @@
+<!-- app/views/cuisines/show.html.erb -->
+
+<h1>Cuisine Details</h1>
+
+<p><strong>Name:</strong> <%= @cuisine.name %></p>
+<p><strong>Description:</strong> <%= @cuisine.description %></p>
+<p><strong>Dish:</strong> <%= @cuisine.dish %></p>
+<p><strong>Country:</strong> <%= @cuisine.country.name %></p>
+
+<%= link_to 'Edit', edit_cuisine_path(@cuisine) %> |
+<%= link_to 'Back', cuisines_path %>
