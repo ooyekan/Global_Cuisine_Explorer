@@ -1,0 +1,11 @@
+<h1><%= @country.name %></h1>
+
+<p><strong>Capital:</strong> <%= @country.capital %></p>
+<p><strong>Region:</strong> <%= @country.region %></p>
+<p><strong>Subregion:</strong> <%= @country.subregion %></p>
+<p><strong>Population:</strong> <%= number_with_delimiter(@country.population) %></p>
+<p><strong>Area:</strong> <%= number_with_delimiter(@country.area) %> sq km</p>
+<p><strong>Flag:</strong> <%= image_tag(@country.flag_url, alt: "#{@country.name} flag", width: 100) %></p>
+
+<%= link_to 'Back to Countries', countries_path %>
+
