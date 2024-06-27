@@ -4,7 +4,7 @@ class CuisinesController < ApplicationController
       @country = Country.find(params[:country_id])
       @cuisines = @country.cuisines
     else
-      @cuisines = Cuisine.all
+      @cuisines = Cuisine.order(:name).distinct
     end
   end
 

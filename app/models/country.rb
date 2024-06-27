@@ -1,5 +1,5 @@
 class Country < ApplicationRecord
-    validates :name, presence: true
+    validates :name, presence: true, uniqueness: true
     validates :capital, presence: true
     validates :region, presence: true
     validates :subregion, presence: true

@@ -54,7 +54,7 @@ h1 {
   }
 
   header {
-    background: linear-gradient(to right, #4facfe, #00f2fe); /* Gradient background */
+    background: linear-gradient(to right, #5f2c82, #49a09d, #5f2c82);/* Gradient background */
     color: #fff;
     padding: 15px 0; /* Increase padding for larger header */
     text-align: center;

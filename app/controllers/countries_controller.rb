@@ -2,9 +2,9 @@ class CountriesController < ApplicationController
   def index
     if params[:query].present?
       query = "%#{params[:query]}%"
-      @countries = Country.where('name LIKE ? COLLATE NOCASE OR region LIKE ? COLLATE NOCASE', query, query)
+      @countries = Country.where('name LIKE ? OR region LIKE ?', query, query).order(:name).uniq
     else
-      @countries = Country.all
+      @countries = Country.order(:name).distinct
     end
   end
 
