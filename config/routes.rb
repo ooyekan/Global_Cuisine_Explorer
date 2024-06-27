@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     resources :languages, only: [:index, :show]
   end
   resources :cuisines, only: [:index, :show]
-  resources :languages, only: [:show]
+  resources :languages, only: [:index, :show]
   root 'countries#index'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

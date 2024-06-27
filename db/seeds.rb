@@ -34,11 +34,11 @@ API_URL = 'https://restcountries.com/v3.1/all'
       end
 
       if country_data['languages']
-        country_data['languages'].each do |language_code, language_name|
-          language = Language.find_or_create_by(code: language_code) do |lang|
-            lang.name = language_name
+        country_data['languages'].each do |code, name|
+          language = Language.find_or_create_by(code: code) do |lang|
+            lang.name = name
           end
-          country.languages << language unless country.languages.include?(language)
+          country.languages << language unless country.languages.exists?(language.id)
         end
       end
     end
@@ -49,7 +49,8 @@ API_URL = 'https://restcountries.com/v3.1/all'
 
   # Seed cuisines associated with countries
   Country.all.each do |country|
-    rand(5..10).times do
+    if country.cuisines.empty?
+      rand(5..10).times do
       cuisine = Cuisine.new(
         name: Faker::Food.ethnic_category,
         description: Faker::Food.description,
@@ -64,3 +65,4 @@ API_URL = 'https://restcountries.com/v3.1/all'
       end
     end
   end
+end

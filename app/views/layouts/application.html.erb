@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playwrite+AU+NSW:wght@100..400&display=swap" rel="stylesheet">
+    <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
@@ -20,6 +21,7 @@
       <%= link_to 'Home', root_path, class: 'navbar-brand' %>
       <%= link_to 'About', about_path, class: 'nav-link' %>
       <%= link_to 'Cuisines', cuisines_path, class: 'nav-link' %>
+      <%= link_to 'Languages', languages_path, class: 'nav-link' %> 
       <!-- Add more links as needed -->
     </div>
   </nav>
