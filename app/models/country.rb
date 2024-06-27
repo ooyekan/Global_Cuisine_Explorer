@@ -7,4 +7,6 @@ class Country < ApplicationRecord
     validates :area, presence: true, numericality: { greater_than_or_equal_to: 0 }
     validates :flag_url, presence: true, format: { with: URI::regexp(%w[http https]), message: "must be a valid URL" }
     has_many :cuisines, dependent: :destroy
+    has_many :country_languages
+    has_many :languages, through: :country_languages
   end

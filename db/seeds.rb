@@ -13,40 +13,54 @@ require 'json'
 
 API_URL = 'https://restcountries.com/v3.1/all'
 
-def fetch_and_save_countries
-  uri = URI(API_URL)
-  response = Net::HTTP.get(uri)
-  countries = JSON.parse(response)
+  def fetch_and_save_countries
+    uri = URI(API_URL)
+    response = Net::HTTP.get(uri)
+    countries = JSON.parse(response)
 
-  countries.each do |country_data|
-    Country.create(
-      name: country_data['name']['common'],
-      capital: country_data['capital']&.first || 'Unknown',
-      region: country_data['region'],
-      subregion: country_data['subregion'],
-      population: country_data['population'],
-      area: country_data['area'],
-      flag_url: country_data['flags']['png']
-    )
-  end
-end
+    countries.each do |country_data|
+      country = Country.find_or_initialize_by(name: country_data['name']['common']) do |c|
+        c.capital = country_data['capital']&.first || 'Unknown'
+        c.region = country_data['region']
+        c.subregion = country_data['subregion']
+        c.population = country_data['population']
+        c.area = country_data['area']
+        c.flag_url = country_data['flags']['png']
+      end
 
-fetch_and_save_countries
+      if country.new_record? || country.changed?
+        country.save!
+        puts "Created/Updated Country: #{country.name}"
+      end
 
-# Seed cuisines associated with countries
-Country.all.each do |country|
-  rand(5..10).times do
-    cuisine = Cuisine.new(
-      name: Faker::Food.ethnic_category,
-      description: Faker::Food.description,
-      dish: Faker::Food.dish,
-      country: country
-    )
-    if cuisine.valid?
-      cuisine.save
-      puts "Created Cuisine: #{cuisine.name} (Country: #{country.name})"
-    else
-      puts "Failed to create Cuisine: #{cuisine.errors.full_messages.join(', ')}"
+      if country_data['languages']
+        country_data['languages'].each do |language_code, language_name|
+          language = Language.find_or_create_by(code: language_code) do |lang|
+            lang.name = language_name
+          end
+          country.languages << language unless country.languages.include?(language)
+        end
+      end
     end
   end
-end
+
+  # Fetch and save countries and associated languages
+  fetch_and_save_countries
+
+  # Seed cuisines associated with countries
+  Country.all.each do |country|
+    rand(5..10).times do
+      cuisine = Cuisine.new(
+        name: Faker::Food.ethnic_category,
+        description: Faker::Food.description,
+        dish: Faker::Food.dish,
+        country: country
+      )
+      if cuisine.valid?
+        cuisine.save
+        puts "Created Cuisine: #{cuisine.name} (Country: #{country.name})"
+      else
+        puts "Failed to create Cuisine: #{cuisine.errors.full_messages.join(', ')}"
+      end
+    end
+  end

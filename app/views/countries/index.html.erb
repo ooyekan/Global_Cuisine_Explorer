@@ -14,9 +14,6 @@
       <th>Name</th>
       <th>Capital</th>
       <th>Region</th>
-      <th>Subregion</th>
-      <th>Population</th>
-      <th>Area</th>
       <th>Flag</th>
       <th>Cuisines</th>
     </tr>
@@ -27,9 +24,6 @@
         <td><%= link_to country.name, country_path(country) %></td>
         <td><%= country.capital %></td>
         <td><%= country.region %></td>
-        <td><%= country.subregion %></td>
-        <td><%= number_with_delimiter(country.population) %></td>
-        <td><%= number_with_delimiter(country.area) %></td>
         <td><%= image_tag(country.flag_url, alt: "#{country.name} flag", width: 50) %></td>
         <td>
           <%= link_to 'View Cuisines', country_cuisines_path(country) %>

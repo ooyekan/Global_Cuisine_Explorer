@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_06_26_233747) do
+ActiveRecord::Schema[7.1].define(version: 2024_06_27_035341) do
   create_table "countries", force: :cascade do |t|
     t.string "name"
     t.string "capital"
@@ -23,6 +23,15 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_26_233747) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "country_languages", force: :cascade do |t|
+    t.integer "country_id", null: false
+    t.integer "language_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["country_id"], name: "index_country_languages_on_country_id"
+    t.index ["language_id"], name: "index_country_languages_on_language_id"
+  end
+
   create_table "cuisines", force: :cascade do |t|
     t.string "name"
     t.text "description"
@@ -33,5 +42,14 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_26_233747) do
     t.index ["country_id"], name: "index_cuisines_on_country_id"
   end
 
+  create_table "languages", force: :cascade do |t|
+    t.string "name"
+    t.string "code"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_foreign_key "country_languages", "countries"
+  add_foreign_key "country_languages", "languages"
   add_foreign_key "cuisines", "countries"
 end

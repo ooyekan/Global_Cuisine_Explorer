@@ -13,6 +13,12 @@
     <li><%= cuisine.name %> - <%= cuisine.description %> - Dish: <%= cuisine.dish %></li>
   <% end %>
 </ul>
+<h3>Languages</h3>
+    <ul>
+  <% @country.languages.each do |language| %>
+    <li><%= link_to language.name, language_path(language) %></li>
+  <% end %>
+</ul>
 
 <%= link_to 'Back to Countries', countries_path %>
 

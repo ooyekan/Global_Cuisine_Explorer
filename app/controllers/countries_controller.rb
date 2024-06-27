@@ -11,5 +11,6 @@ class CountriesController < ApplicationController
   def show
     @country = Country.find(params[:id])
     @cuisines = @country.cuisines
+    @languages = @country.languages
   end
 end

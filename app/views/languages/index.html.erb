@@ -1,0 +1,10 @@
+<!-- app/views/languages/index.html.erb -->
+<h1>All Languages</h1>
+
+<ul>
+  <% @languages.each do |language| %>
+    <li>
+      <%= link_to language.name, language_path(@language) %>
+    </li>
+  <% end %>
+</ul>
