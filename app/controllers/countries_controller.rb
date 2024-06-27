@@ -4,7 +4,7 @@ class CountriesController < ApplicationController
       query = "%#{params[:query]}%"
       @countries = Country.where('name LIKE ? OR region LIKE ?', query, query).order(:name).uniq
     else
-      @countries = Country.order(:name).distinct
+      @countries = Country.order(:name).distinct.page(params[:page])
     end
   end
 

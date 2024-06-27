@@ -1,7 +1,7 @@
 class LanguagesController < ApplicationController
 
     def index
-      @languages = Language.all.order(name: :asc)
+      @languages = Language.order(name: :asc).page(params[:page])
     end
 
     def show
