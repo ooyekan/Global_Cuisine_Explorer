@@ -21,11 +21,9 @@
         <td><%= cuisine.dish %></td>
         <td><%= cuisine.country.name %></td>
         <td><%= link_to 'Show', cuisine %></td>
-        <td><%= link_to 'Edit', edit_cuisine_path(cuisine) %></td>
-        <td><%= link_to 'Destroy', cuisine, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<%= link_to 'New Cuisine', new_cuisine_path %>
+<%= link_to 'Back to Countries', countries_path %>

@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
   get 'countries/index'
   get 'countries/show'
-  resources :countries, only: [:index, :show]
-  resources :cuisines
+  resources :countries, only: [:index, :show] do
+    resources :cuisines, only: [:index, :show]
+  end
+  resources :cuisines, only: [:index, :show]
   root 'countries#index'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

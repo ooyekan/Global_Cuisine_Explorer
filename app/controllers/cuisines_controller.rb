@@ -1,7 +1,11 @@
 class CuisinesController < ApplicationController
-  # GET /cuisines
   def index
-    @cuisines = Cuisine.all
+    if params[:country_id]
+      @country = Country.find(params[:country_id])
+      @cuisines = @country.cuisines
+    else
+      @cuisines = Cuisine.all
+    end
   end
 
   # GET /cuisines/1

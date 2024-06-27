@@ -16,6 +16,7 @@
       <th>Population</th>
       <th>Area</th>
       <th>Flag</th>
+      <th>Cuisines</th>
     </tr>
   </thead>
   <tbody>
@@ -28,6 +29,9 @@
         <td><%= number_with_delimiter(country.population) %></td>
         <td><%= number_with_delimiter(country.area) %></td>
         <td><%= image_tag(country.flag_url, alt: "#{country.name} flag", width: 50) %></td>
+        <td>
+          <%= link_to 'View Cuisines', country_cuisines_path(country) %>
+        </td>
       </tr>
     <% end %>
   </tbody>
