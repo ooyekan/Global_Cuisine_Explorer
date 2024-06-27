@@ -14,73 +14,20 @@
  *= require_self
  */
 /* Example CSS for countries index page */
-/*h1 {
+h1 {
     text-align: center;
     margin-top: 20px;
   }
   
   form {
     margin-bottom: 20px;
-    text-align: right; /* Align form elements to the right
+    text-align: right; /* Align form elements to the right*/
   }
   
   label, input[type="text"], input[type="submit"] {
-    font-size: 18px; /* Increase font size 
+    font-size: 12px; /* Increase font size*/
   }
   
-  table.countries-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-  }
-  
-  table.countries-table th, table.countries-table td {
-    border: 1px solid #ddd;
-    padding: 8px;
-    text-align: left;
-  }
-  
-  table.countries-table th {
-    background-color: #f2f2f2;
-  }
-  
-  table.countries-table td {
-    vertical-align: middle;
-  }
-  
-  img.flag {
-    display: block;
-    margin: 0 auto;
-  }
 
-  header {
-    background: linear-gradient(to right, #5f2c82, #49a09d, #5f2c82);/* Gradient background 
-    color: #fff;
-    padding: 15px 0; /* Increase padding for larger header
-    text-align: center;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional: Add box shadow for depth 
-  }
-  
-  .navbar {
-    display: flex;
-    justify-content: flex-end; /* Align items to the right 
-    align-items: center;
-    padding: 0 20px;
-  }
-  
-  .navbar-brand, .nav-link {
-    font-size: 20px;
-    font-weight: bold;
-    color: #fff;
-    text-decoration: none;
-    margin-left: 20px; /* Add space between links 
-  }
-  
-  .navbar-brand:hover, .nav-link:hover {
-    text-decoration: none;
-    background-color: rgb(247, 13, 204);
-
-  }
-  */
-  
+ 
   

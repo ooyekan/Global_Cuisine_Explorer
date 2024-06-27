@@ -7,7 +7,7 @@
 <p><strong>Area:</strong> <%= number_with_delimiter(@country.area) %> sq km</p>
 <p><strong>Flag:</strong> <%= image_tag(@country.flag_url, alt: "#{@country.name} flag", width: 100) %></p>
 
-<h2>Cuisines:</h2>
+<h2>Top 5 Cuisines:</h2>
 <ul>
   <% @cuisines.each do |cuisine| %>
     <li><%= cuisine.name %> - <%= cuisine.description %> - Dish: <%= cuisine.dish %></li>

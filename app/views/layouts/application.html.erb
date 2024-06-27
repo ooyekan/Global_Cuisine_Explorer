@@ -14,19 +14,20 @@
   </head>
 
   <body>
-    <header>
+    <header class="bg-gradient-to-r from-purple-800 via-teal-500 to-purple-800 text-white py-4 text-center shadow-md">
       <h1 style="font-family: 'Playwrite AU NSW', sans-serif; font-weight: 400; text-align: center;">Global Cuisine Explorer</h1>
-   <nav class="navbar">
-    <div class="container">
-      <%= link_to 'Home', root_path, class: 'navbar-brand' %>
-      <%= link_to 'About', about_path, class: 'nav-link' %>
-      <%= link_to 'Cuisines', cuisines_path, class: 'nav-link' %>
-      <%= link_to 'Languages', languages_path, class: 'nav-link' %> 
+   <nav class="flex justify-end items-center px-5">
+    <div class="container flex justify-end">
+       <%= link_to 'Home', root_path, class: 'text-xl font-bold text-white no-underline ml-5 hover:bg-pink-500 px-3 py-2 rounded-md' %>
+      <%= link_to 'About', about_path, class: 'text-xl font-bold text-white no-underline ml-5 hover:bg-pink-500 px-3 py-2 rounded-md' %>
+      <%= link_to 'Cuisines', cuisines_path, class: 'text-xl font-bold text-white no-underline ml-5 hover:bg-pink-500 px-3 py-2 rounded-md' %>
+      <%= link_to 'Languages', languages_path, class: 'text-xl font-bold text-white no-underline ml-5 hover:bg-pink-500 px-3 py-2 rounded-md' %>
       <!-- Add more links as needed -->
     </div>
   </nav>
 </header>
-<main class="container">
+<main class="prose container mx-auto">
     <%= yield %>
+  </main>
   </body>
 </html>

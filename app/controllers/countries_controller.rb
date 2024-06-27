@@ -10,7 +10,7 @@ class CountriesController < ApplicationController
 
   def show
     @country = Country.find(params[:id])
-    @cuisines = @country.cuisines
+    @cuisines = @country.cuisines.limit(5).order(name: :asc)
     @languages = @country.languages
   end
 end
