@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'static_pages/about'
+  get 'about' => 'static_pages#about'
   get 'countries/index'
   get 'countries/show'
   resources :countries, only: [:index, :show] do
