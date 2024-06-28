@@ -1,0 +1,20 @@
+<!-- app/views/reviews/new.html.erb -->
+<h1>New Review</h1>
+
+<%= form_for @review do |f| %>
+  <div>
+    <%= f.label :reviewer_name %>
+    <%= f.text_field :reviewer_name %>
+  </div>
+  <div>
+    <%= f.label :content %>
+    <%= f.text_area :content %>
+  </div>
+
+  <div class="field">
+    <%= f.label :image %>
+    <%= f.file_field :image %>
+  </div>
+
+  <%= f.submit %>
+<% end %>

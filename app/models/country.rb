@@ -5,7 +5,6 @@ class Country < ApplicationRecord
   def self.ransackable_attributes(auth_object = nil)
     ["area", "capital", "created_at", "flag_url", "id", "id_value", "name", "population", "region", "subregion", "updated_at"]
   end
-  has_one_attached :image
     validates :name, presence: true, uniqueness: true
     validates :capital, presence: true
     validates :region, presence: true

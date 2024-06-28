@@ -1,0 +1,16 @@
+<!-- app/views/reviews/index.html.erb -->
+<h1>Reviews</h1>
+
+<%= link_to 'New Review', new_review_path %>
+
+<ul>
+  <% @reviews.each do |review| %>
+    <li>
+      <%= link_to review.reviewer_name, review %>
+      <p><%= review.content %></p>
+      <% if review.image.attached? %>
+        <%= image_tag review.image %>
+      <% end %>
+    </li>
+  <% end %>
+</ul>
