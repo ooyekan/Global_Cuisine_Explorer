@@ -66,3 +66,4 @@ API_URL = 'https://restcountries.com/v3.1/all'
     end
   end
 end
+AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?

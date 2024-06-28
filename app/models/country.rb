@@ -1,4 +1,10 @@
 class Country < ApplicationRecord
+  def self.ransackable_associations(auth_object = nil)
+    ["country_languages", "cuisines", "languages"]
+  end
+  def self.ransackable_attributes(auth_object = nil)
+    ["area", "capital", "created_at", "flag_url", "id", "id_value", "name", "population", "region", "subregion", "updated_at"]
+  end
     validates :name, presence: true, uniqueness: true
     validates :capital, presence: true
     validates :region, presence: true
