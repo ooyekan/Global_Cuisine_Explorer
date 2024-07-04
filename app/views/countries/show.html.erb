@@ -31,6 +31,7 @@
         <% if review.image.attached? %>
           <%= image_tag review.image %>
         <% end %>
+        <%= link_to 'Edit', edit_review_path(review) %>
       </li>
     <% end %>
   </ul>

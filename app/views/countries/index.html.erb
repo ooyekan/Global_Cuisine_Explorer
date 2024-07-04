@@ -5,6 +5,9 @@
 <%= form_with url: countries_path, method: :get, local: true do %>
   <%= label_tag :query, "Search for countries or regions:" %>
   <%= text_field_tag :query, params[:query] %>
+  <%= label_tag :region, "Filter by Region:" %>
+  <%= select_tag :region, options_for_select(@regions, params[:region]), prompt: "Select a region",
+  class: "appearance-none rounded-md px-2 py-1 leading-tight focus:outline-none focus:shadow-outline w-64"%>
   <%= submit_tag "Search" %>
 <% end %>
 
