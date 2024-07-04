@@ -1,4 +1,5 @@
 # app/controllers/reviews_controller.rb
+
 class ReviewsController < ApplicationController
   before_action :set_review, only: %i[show edit update destroy]
 
@@ -14,11 +15,13 @@ class ReviewsController < ApplicationController
   end
 
   def create
-    @review = Review.new(review_params)
+    @country = Country.find(params[:country_id])
+    @review = @country.reviews.build(review_params)
+
     if @review.save
-      redirect_to @review, notice: 'Review was successfully created.'
+      redirect_to @country, notice: 'Review was successfully created.'
     else
-      render :new
+      render 'countries/show' # or wherever your form is rendered
     end
   end
 
@@ -45,6 +48,6 @@ class ReviewsController < ApplicationController
   end
 
   def review_params
-    params.require(:review).permit(:reviewer_name, :content, :rating, :image)
+    params.require(:review).permit(:reviewer_name, :content, :rating, :image, :country_id)
   end
 end

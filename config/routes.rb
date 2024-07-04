@@ -7,11 +7,12 @@ Rails.application.routes.draw do
   resources :countries, only: [:index, :show] do
     resources :cuisines, only: [:index, :show]
     resources :languages, only: [:index, :show]
+    resources :reviews, only: [:index, :show, :new, :create]
   end
   resources :cuisines, only: [:index, :show]
   resources :languages, only: [:index, :show]
 
-  resources :reviews
+  resources :reviews, only: [:show, :edit, :update, :destroy]
   root 'countries#index'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

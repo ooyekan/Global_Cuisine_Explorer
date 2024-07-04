@@ -12,5 +12,6 @@ class CountriesController < ApplicationController
     @country = Country.find(params[:id])
     @cuisines = @country.cuisines.limit(5).order(name: :asc)
     @languages = @country.languages
+    @reviews = @country.reviews
   end
 end

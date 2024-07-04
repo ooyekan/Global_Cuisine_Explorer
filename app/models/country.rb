@@ -15,4 +15,5 @@ class Country < ApplicationRecord
     has_many :cuisines, dependent: :destroy
     has_many :country_languages
     has_many :languages, through: :country_languages
+    has_many :reviews, dependent: :destroy
   end

@@ -1,20 +1,21 @@
-<!-- app/views/reviews/new.html.erb -->
-<h1>New Review</h1>
+<!-- reviews/new.html.erb -->
 
-<%= form_for @review do |f| %>
-  <div>
-    <%= f.label :reviewer_name %>
-    <%= f.text_field :reviewer_name %>
-  </div>
-  <div>
-    <%= f.label :content %>
-    <%= f.text_area :content %>
-  </div>
+<%= form_with(model: @review, local: true) do |form| %>
+  <%= form.label :reviewer_name %>
+  <%= form.text_field :reviewer_name %>
 
-  <div class="field">
-    <%= f.label :image %>
-    <%= f.file_field :image %>
-  </div>
+  <%= form.label :content %>
+  <%= form.text_area :content %>
 
-  <%= f.submit %>
+  <%= form.label :rating %>
+  <%= form.number_field :rating %>
+
+  <%= form.label :image %>
+  <%= form.file_field :image %>
+
+  <!-- Add a select dropdown for country_id -->
+  <%= form.label :country_id, "Country" %>
+  <%= form.select :country_id, options_for_select(Country.all.map { |c| [c.name, c.id] }), { prompt: "Select a country" } %>
+
+  <%= form.submit %>
 <% end %>

@@ -8,7 +8,8 @@
        through a foreign key relationship. Countries also have a many-to-many relationship with Language,
        also sourced from the Country API, representing languages spoken within each country.
        This relationship is facilitated through the CountryLanguage join model, linking countries and languages
-       based on their associations retrieved from the API.
+       based on their associations retrieved from the API. Additionally, the Country model has a one-to-many
+        relationship with Reviews, where users can provide feedback on their overall experience with each country in the application.
     </p>
 
-    <%= image_tag "cuizine.drawio.png", alt: "About Image", class: "about-image" %>
+    <%= image_tag "cuisine.drawio.png", alt: "About Image", class: "about-image" %>

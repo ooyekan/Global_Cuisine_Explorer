@@ -5,7 +5,6 @@
 <p><strong>Name:</strong> <%= @cuisine.name %></p>
 <p><strong>Description:</strong> <%= @cuisine.description %></p>
 <p><strong>Dish:</strong> <%= @cuisine.dish %></p>
-<p><strong>Country:</strong> <%= @cuisine.country.name %></p>
-
+<p><strong>Country:</strong> <%= link_to @cuisine.country.name, country_path(@cuisine.country) %></p>
 <%# <%= link_to 'Edit', edit_cuisine_path(@cuisine) %>
-<%= link_to 'Back', cuisines_path %>
+<%= link_to 'Back to cuisines', cuisines_path %>

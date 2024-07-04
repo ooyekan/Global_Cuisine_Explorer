@@ -10,4 +10,5 @@ class Review < ApplicationRecord
 
   validates :reviewer_name, presence: true
   validates :content, presence: true
+  belongs_to :country
 end

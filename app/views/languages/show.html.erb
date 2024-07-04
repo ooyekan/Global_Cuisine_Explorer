@@ -2,11 +2,12 @@
 <h1><%= @language.name %></h1>
 
 <p><strong>Language Code:</strong> <%= @language.code %></p>
-<h2>Countries:</h2>
+<h2>Spoken in:</h2>
 <ul>
-  <% @countries.each do |country| %>
-    <li><%= country.name %></li>
+  <% @language.countries.each do |country| %>
+    <li><%= link_to country.name, country_path(country) %></li>
   <% end %>
 </ul>
 
-<!-- Add more details about the language as needed -->
+<%= link_to 'Back to languages', languages_path %>
+

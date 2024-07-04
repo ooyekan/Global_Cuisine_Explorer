@@ -1,16 +1,15 @@
-<!-- app/views/reviews/index.html.erb -->
-<h1>Reviews</h1>
+<h1>All Reviews</h1>
 
-<%= link_to 'New Review', new_review_path %>
+<% @reviews.each do |review| %>
+  <div>
+    <h3><%= review.reviewer_name %> - <%= link_to review.country.name, country_path(review.country) %></h3>
+    <p><%= review.content %></p>
+    <% if review.image.attached? %>
+      <%= image_tag review.image %>
+    <% end %>
+  </div>
+  <hr>
+<% end %>
 
-<ul>
-  <% @reviews.each do |review| %>
-    <li>
-      <%= link_to review.reviewer_name, review %>
-      <p><%= review.content %></p>
-      <% if review.image.attached? %>
-        <%= image_tag review.image %>
-      <% end %>
-    </li>
-  <% end %>
-</ul>
+<!-- Link back to reviews index -->
+<%= link_to "Back to All Reviews", reviews_path %>

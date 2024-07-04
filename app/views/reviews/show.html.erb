@@ -17,5 +17,12 @@
   </p>
 <% end %>
 
+<% if @review.country %>
+  <p>
+    <strong>Country:</strong>
+    <%= link_to @review.country.name, country_path(@review.country) %>
+  </p>
+<% end %>
+
 <%= link_to 'Edit', edit_review_path(@review) %> |
 <%= link_to 'Back', reviews_path %>
