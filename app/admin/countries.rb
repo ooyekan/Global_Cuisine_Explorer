@@ -3,6 +3,13 @@ ActiveAdmin.register Country do
   permit_params :name, :capital, :population, :area, :region, :subregion, review_ids: []
 
   filter :reviews_id, as: :select, collection: proc { Review.pluck(:id, :id) }
+  # Other configurations for Country resource
+
+  controller do
+    def scoped_collection
+      super.includes(:reviews) # Ensure reviews are included in the collection
+    end
+  end
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
   #
