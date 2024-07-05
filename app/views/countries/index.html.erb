@@ -1,39 +1,41 @@
-<h1>Hey Global Explorer, welcome</h1>
 
-<h2>Countries</h2>
+        <h1>Hey Global Explorer, welcome</h1>
 
-<%= form_with url: countries_path, method: :get, local: true do %>
-  <%= label_tag :query, "Search for countries or regions:" %>
-  <%= text_field_tag :query, params[:query] %>
-  <%= label_tag :region, "Filter by Region:" %>
-  <%= select_tag :region, options_for_select(@regions, params[:region]), prompt: "Select a region",
-  class: "appearance-none rounded-md px-2 py-1 leading-tight focus:outline-none focus:shadow-outline w-64"%>
-  <%= submit_tag "Search" %>
-<% end %>
+        <h2>Countries</h2>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Capital</th>
-      <th>Region</th>
-      <th>Flag</th>
-      <th>Cuisines</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @countries.each do |country| %>
-      <tr>
-        <td><%= link_to country.name, country_path(country) %></td>
-        <td><%= country.capital %></td>
-        <td><%= country.region %></td>
-        <td><%= image_tag(country.flag_url, alt: "#{country.name} flag", width: 50) %></td>
-        <td>
-          <%= link_to 'View Cuisines', country_cuisines_path(country) %>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+        <%= form_with url: countries_path, method: :get, local: true do %>
+          <%= label_tag :query, "Search for countries or regions:" %>
+          <%= text_field_tag :query, params[:query] %>
+          <%= label_tag :region, "Filter by Region:" %>
+          <%= select_tag :region, options_for_select(@regions, params[:region]), prompt: "Select a region",
+          class: "appearance-none rounded-md px-2 py-1 leading-tight focus:outline-none focus:shadow-outline w-64"%>
+          <%= submit_tag "Search" %>
+        <% end %>
 
-<%= paginate @countries %>
+        <table>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Capital</th>
+              <th>Region</th>
+              <th>Flag</th>
+              <th>Cuisines</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @countries.each do |country| %>
+              <tr>
+                <td><%= link_to country.name, country_path(country) %></td>
+                <td><%= country.capital %></td>
+                <td><%= country.region %></td>
+                <td><%= image_tag(country.flag_url, alt: "#{country.name} flag", width: 50) %></td>
+                <td>
+                  <%= link_to 'View Cuisines', country_cuisines_path(country) %>
+                </td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+
+        <%= paginate @countries %>
+

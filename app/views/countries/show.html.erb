@@ -29,7 +29,7 @@
         <%= link_to "#{review.reviewer_name} says:", review_path(review) %>
         <p><%= review.content %></p>
         <% if review.image.attached? %>
-          <%= image_tag review.image %>
+          <%= image_tag review.image, alt: "Review image" %>
         <% end %>
         <%= link_to 'Edit', edit_review_path(review) %>
       </li>
@@ -41,23 +41,35 @@
 
 
 <h4>Leave a review</h4>
-<%= form_with(model: [@country, Review.new], local: true) do |form| %>
+  <%= form_with(model: [@country, Review.new], local: true, html: { enctype: "multipart/form-data" }) do |form| %>
+
   <div>
-    <%= form.label :reviewer_name, "Name" %>
-    <%= form.text_field :reviewer_name %>
+    <%= form.label :reviewer_name, "Name" %><br>
+    <%= form.text_field :reviewer_name, required: true %>
+    <% @country.reviews.new.errors.full_messages_for(:reviewer_name).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
   </div>
-  
+
   <div>
-    <%= form.label :content, "Content" %>
-    <%= form.text_area :content %>
+    <%= form.label :content, "Content" %><br>
+    <%= form.text_area :content, required: true %>
+    <% @country.reviews.new.errors.full_messages_for(:content).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
   </div>
-  
+
   <div>
-    <%= form.label :image, "Attach Image" %>
-    <%= form.file_field :image %>
+    <%= form.label :image, "Attach Image" %><br>
+    <%= form.file_field :image, accept: 'image/*' %>
+    <% @country.reviews.new.errors.full_messages_for(:image).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
   </div>
-  
-  <%= form.submit "Submit Review" %>
+
+  <div>
+    <%= form.submit "Submit Review" %>
+  </div>
 <% end %>
 
 <%= link_to 'Back to Countries', countries_path %>

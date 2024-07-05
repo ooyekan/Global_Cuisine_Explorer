@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <title>GlobalCuisineExplorer</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -23,14 +23,11 @@
         <%= link_to 'Cuisines', cuisines_path, class: 'text-lg font-bold text-white no-underline ml-3  hover:text-white px-3 py-2 rounded-md bg-pink bg-opacity-50' %>
         <%= link_to 'Languages', languages_path, class: 'text-lg font-bold text-white no-underline ml-3  hover:text-white px-3 py-2 rounded-md bg-pink bg-opacity-50' %>
         <%= link_to 'Reviews', reviews_path, class: 'text-lg font-bold text-white no-underline ml-3  hover:text-white px-3 py-2 rounded-md bg-pink bg-opacity-50' %>
-        <%= link_to 'Admin', admin_root_path, class: 'text-lg font-bold text-white no-underline ml-3  hover:text-white px-3 py-2 rounded-md bg-pink bg-opacity-50'%></li>
-  </nav>
-</header>
-
+        <%= link_to 'Admin', admin_root_path, class: 'text-lg font-bold text-white no-underline ml-3  hover:text-white px-3 py-2 rounded-md bg-pink bg-opacity-50'%>
+    </nav>
     </div>
-  </nav>
 </header>
-<main class="prose container mx-auto">
+  <main class="prose container mx-auto">
     <%= yield %>
   </main>
   </body>
