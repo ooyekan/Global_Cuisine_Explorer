@@ -1,11 +1,10 @@
 ActiveAdmin.register Review do
-
   permit_params :reviewer_name, :content, :image, :country_id
 
   # Customize the index view with filters and columns
-  filter :reviewer_name
-  filter :country_id, as: :select, collection: proc { Country.pluck(:name, :id) }, label: 'Country'
-
+  # filter :reviewer_name
+  # filter :country_id, as: :select, collection: proc { Country.pluck(:name, :id) }, label: 'Country'
+  config.filters = false
   index do
     selectable_column
     id_column
